@@ -54,7 +54,7 @@ When you want to do basic python code like if-staments forloop do it inside {% p
 for example if you want to have a list of your data in the template it will look like this 
 
 {% for data in database %}
-    <h1>{{data.title}}<h1>
+    h1>{{data.title}}h1
 {% endfor %}
 
 
