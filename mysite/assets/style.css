@@ -1,0 +1,19 @@
+body{
+    background: url(13392.jpg) no-repeat center center fixed;
+    background-size: auto;
+    color: white;
+}
+
+body *{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+    margin: 0;
+}
+
+a, a:hover, a:visited{
+    color: #fff;
+    text-decoration: none;
+}
