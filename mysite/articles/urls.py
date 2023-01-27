@@ -2,7 +2,11 @@ from django.contrib import admin
 from django.urls import path
 from .import views
 
+app_name = 'articles'
+
 urlpatterns = [
-    path('',views.article_list),
-    path('about/', views.article_list ),
+    
+    path('',views.article_list,name="list"),
+    path('create/', views.article_create ,name="create"),
+    path("detail/<slug>",views.article_detail,name="detail"),
 ]

@@ -1,0 +1,30 @@
+{% load static from static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>D</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+    <body>
+        <header class = "wrapper">
+            <h1><a href="{% url 'articles:list' %}"><img src="{% static 'dora.png' %}"   
+                width="60" 
+                height="60"/></a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">LOGOUT</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="wrapper">
+            
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

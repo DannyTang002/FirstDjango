@@ -77,5 +77,41 @@ Asåå basedir(vart vi är ) + assets som är Directory för våra statiska file
 urlpatterns +=staticfiles_urlpatterns() checks debug mode.
 
 -EXTENDING TEMPLATES
+If your templates look the same and dont want to do code duplication you can have a base-layout for your templates where you can reuse for example parts of the header and footer which will always be prevalent in a webapplication. 
+
+THis is done by in the baselayout html where the footer and header is you have a wrapper dir where all the different templates will be stored. 
+Every template now can remove their own header and footer. By exntending to the base layout you can then wrapp the template inside of the base-layout template.  And by that you dont have to write a similar header everytime, just exntend  and reuse the baselayout. 
+
+URL AS PARAMETERS 
+In this example we want to be able to click into a article to get its details. This can be done by using parts of an url as parameters. In this case we use slugs. Where a url path with the slug will trigger a Article-detail view. Where a html response is sent with the slug
+
+URL-TAGS and NAMES
+By using the template tags you can reference a given url. And by naming them its easier to reference. In each template for example if you want a href where you click and go into a new page, you can use the name send in to the url list in urls.py and reference that url inside of the href. 
+
+for example: 
+"{% url 'articles:detail' slug=article.slug %}"
+where the url is referenced through the name details, and articles is from name spacing. Slug_article.slug is so that when you click into the href it goes into the specific article with that slug name.
+
+
+Uploading media-
+If you want to add pictures or images in django for each database, you can change so that the model takes in a thumbnail as an attribute. But to make sure that picture gets uploaded into our code base we need a media folder where our code can find the uploaded image. 
+
+just like the static folder we need to change some setting so that these files can be found. 
+
+for example: 
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media') (creting a media folder where the pcitrues will be uploaded)
+
+and in the main url 
+urlpatterns +=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+User creation form-
+Django has a built in usercreaton form where it codes the template for you. Post and get request:
+
+Get: getting data
+Post: sending data to the server and creating data.
+
+
+
 
 

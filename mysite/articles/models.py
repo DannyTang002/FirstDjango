@@ -6,6 +6,7 @@ class Article(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+    thumb = models.ImageField(default='default.jpg',blank=True)
     #add thumbnail and auhtor
 
     def __str__(self):#så att databasen visar att varje article riktar mot sin titel
