@@ -7,17 +7,24 @@
 </head>
     <body>
         <header class = "wrapper">
-            <h1><a href="{% url 'articles:list' %}"><img src="{% static 'dora.png' %}"   
+            <h1><a href="{% url 'home' %}"><img src="{% static 'dora.png' %}"   
                 width="60" 
                 height="60"/></a></h1>
             <nav>
                 <ul>
+                    {% if user.is_authenticated %}
                     <li>
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">LOGOUT</button>
                         </form>
                     </li>
+                    <li><a href="{% url 'articles:create' %}">Create Article</a></li>
+                    {% else %}
+                        <li><a href="{% url 'accounts:log' %}">Log in</a></li>
+                        <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+
+                    {% endif %}
                 </ul>
             </nav>
         </header>
