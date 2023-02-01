@@ -1,5 +1,5 @@
 "# FirstDjango" 
- 
+ First django website followed a guide and wrote down some general stuff about dj
 
 -views and templates
 views are ways to give the user feedback when they are sending a html request. The views can be represented as renders, which gives back a html-site in forms of templates. 
